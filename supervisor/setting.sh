@@ -14,6 +14,7 @@ PORT_DISCUSS=8005
 RVM_EDX_PLATFORM="ruby-1.9.3-p448"
 RVM_DISCUSS="ruby-1.9.3-p448@cs_comments_service"
 
+# ora
 export XQUEUE_DB_NAME="xqueue"
 export XQUEUE_DB_USER="pepper"
 export XQUEUE_DB_PASSWORD="lebbeb"
@@ -62,4 +63,3 @@ export EDX_PLATFORM_MYSQL_PASSWORD_W="$EDX_PLATFORM_MYSQL_PASSWORD_R"
 
 export LMS_BASE="http://lms.loc"
 export PREVIEW_LMS_BASE="preview-staging.pepperpd.com"
-

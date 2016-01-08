@@ -16,4 +16,3 @@ cd "$PROJECT_HOME/edx-platform"
 ./manage.py lms runserver 127.0.0.1:$PORT_LMS_PREVIEW --settings=cms.preview_dev --pythonpath=. --nothreading
 
 
-
