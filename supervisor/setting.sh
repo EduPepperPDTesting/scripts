@@ -31,8 +31,8 @@ export XQUEUE_URL="http://127.0.0.1:$PORT_XQUEUE"
 export GRADING_CONTROLLER_INTERFACE_URL="http://127.0.0.1:$PORT_ORA"
 
 # discuss
-export ES_INDEX_COMMENT_THREAD="comment_thread_dev"
-export ES_INDEX_COMMENT="comment_thread_dev"
+export ES_INDEX_COMMENT_THREAD="comment_thread"
+export ES_INDEX_COMMENT="comment"
 export DISSCUSS_MONGODB_HOST="mongo"
 export DISSCUSS_MONGODB_PORT="27017"
 
