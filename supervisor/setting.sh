@@ -1,8 +1,8 @@
-PROJECT_HOME=/home/tahoe/edx_all
+export PROJECT_HOME="$HOME/pepper"
 ENV_PYTHON=edx-platform
 
 IMPORT_VIRTUALENVWRAPPER=/usr/bin/virtualenvwrapper.sh
-IMPORT_RVM=/home/tahoe/.rvm/scripts/rvm
+IMPORT_RVM="$HOME/.rvm/scripts/rvm"
 
 PORT_LMS=8000
 PORT_CMS=8001
@@ -21,7 +21,7 @@ export XQUEUE_DB_PASSWORD="lebbeb"
 export XQUEUE_DB_HOST="mysql"
 export XQUEUE_DB_PORT="3306"
 
-export ESSAY_DB_NAME="xqueue"
+export ESSAY_DB_NAME="essay"
 export ESSAY_DB_USER="pepper"
 export ESSAY_DB_PASSWORD="lebbeb"
 export ESSAY_DB_HOST="mysql"

@@ -1,9 +1,15 @@
-base="/home/tahoe/pepper/dev"
-shell_base="/home/tahoe/pepper/dev/scripts/supervisor"
- 
-source $shell_base/env-rvm1.9.3.sh
+#!/bin/bash
 
-cd $base/edx-platform/
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$DIR/setting.sh"
+source $IMPORT_VIRTUALENVWRAPPER
+source $IMPORT_RVM
+
+workon "$ENV_PYTHON"
+
+base="$PROJECT_HOME"
+
+cd "$base/edx-platform/"
 
 # rake cms:gather_assets:dev  
 # rake lms:gather_assets:cms.dev
