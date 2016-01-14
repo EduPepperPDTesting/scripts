@@ -14,4 +14,4 @@ rvm use $RVM_EDX_PLATFORM
 cd "$PROJECT_HOME/edx-platform"
 
 # ./manage.py lms runserver 127.0.0.1:8000 --settings=cms.staging --pythonpath=. --nothreading
-gunicorn lms.wsgi:application --workers=8 -b localhost:$PORT_LMS
+gunicorn lms.wsgi:application --workers=8 -b 0.0.0.0:$PORT_LMS

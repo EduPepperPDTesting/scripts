@@ -1,8 +1,8 @@
-PROJECT_HOME=/home/tahoe/pepper
+PROJECT_HOME="$HOME/pepper"
 ENV_PYTHON=edx-platform
 
 IMPORT_VIRTUALENVWRAPPER=/usr/local/bin/virtualenvwrapper.sh
-IMPORT_RVM=/home/tahoe/.rvm/scripts/rvm
+IMPORT_RVM="$HOME/.rvm/scripts/rvm"
 
 PORT_LMS=8000
 PORT_CMS=8001

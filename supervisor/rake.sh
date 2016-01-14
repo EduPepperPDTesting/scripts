@@ -7,6 +7,8 @@ source $IMPORT_RVM
 
 base="$PROJECT_HOME"
 
+workon "$ENV_PYTHON"
+
 cd "$base/edx-platform/"
 
 # rake cms:gather_assets:dev  
