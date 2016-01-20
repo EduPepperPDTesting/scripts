@@ -21,7 +21,7 @@ export XQUEUE_DB_PASSWORD="lebbeb"
 export XQUEUE_DB_HOST="mysql"
 export XQUEUE_DB_PORT="3306"
 
-export ESSAY_DB_NAME="xqueue"
+export ESSAY_DB_NAME="essay"
 export ESSAY_DB_USER="pepper"
 export ESSAY_DB_PASSWORD="lebbeb"
 export ESSAY_DB_HOST="mysql"
