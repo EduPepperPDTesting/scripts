@@ -5,9 +5,9 @@ source "$DIR/setting.sh"
 source $IMPORT_VIRTUALENVWRAPPER
 source $IMPORT_RVM
 
-workon "$ENV_PYTHON"
-
 base="$PROJECT_HOME"
+
+workon "$ENV_PYTHON"
 
 cd "$base/edx-platform/"
 

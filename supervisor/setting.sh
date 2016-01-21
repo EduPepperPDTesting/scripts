@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 export PROJECT_HOME="$HOME/pepper"
 ENV_PYTHON=edx-platform
 
 IMPORT_VIRTUALENVWRAPPER=/usr/bin/virtualenvwrapper.sh
+=======
+PROJECT_HOME="$HOME/pepper"
+ENV_PYTHON=edx-platform
+
+IMPORT_VIRTUALENVWRAPPER=/usr/local/bin/virtualenvwrapper.sh
+>>>>>>> master
 IMPORT_RVM="$HOME/.rvm/scripts/rvm"
 
 PORT_LMS=8000
