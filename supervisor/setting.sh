@@ -1,15 +1,12 @@
-<<<<<<< HEAD
+
 export PROJECT_HOME="$HOME/pepper"
 ENV_PYTHON=edx-platform
 
 IMPORT_VIRTUALENVWRAPPER=/usr/bin/virtualenvwrapper.sh
-=======
-PROJECT_HOME="$HOME/pepper"
-ENV_PYTHON=edx-platform
 
-IMPORT_VIRTUALENVWRAPPER=/usr/local/bin/virtualenvwrapper.sh
->>>>>>> master
+
 IMPORT_RVM="$HOME/.rvm/scripts/rvm"
+
 
 PORT_LMS=8000
 PORT_CMS=8001
@@ -20,6 +17,9 @@ PORT_DISCUSS=8005
 
 RVM_EDX_PLATFORM="ruby-1.9.3-p448"
 RVM_DISCUSS="ruby-1.9.3-p448@cs_comments_service"
+
+# elasticsearch
+export SEARCH_SERVER=""
 
 # ora
 export XQUEUE_DB_NAME="xqueue"

@@ -354,7 +354,7 @@ def helping():
   ./course_users.py report -H -d 10 -s 1 -e 2
   ./course_users.py report -H -d 10 -s 1 -e 2 -l \"WestEd/ELA101x/2014_Spring\"
 
-  you can redirect report to csv by: ./course_users.py report -H > report.csv
+  You can redirect report to csv, for example: ./course_users.py report -H > report.csv
         """
 
 if __name__ == '__main__':
