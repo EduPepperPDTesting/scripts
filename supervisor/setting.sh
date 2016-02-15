@@ -14,6 +14,9 @@ PORT_DISCUSS=8005
 RVM_EDX_PLATFORM="ruby-1.9.3-p448"
 RVM_DISCUSS="ruby-1.9.3-p448@cs_comments_service"
 
+# elasticsearch
+export SEARCH_SERVER=""
+
 # ora
 export XQUEUE_DB_NAME="xqueue"
 export XQUEUE_DB_USER="pepper"
