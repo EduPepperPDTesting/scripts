@@ -13,5 +13,8 @@ rvm use $RVM_EDX_PLATFORM
 
 cd "$PROJECT_HOME/edx-platform"
 
-#./manage.py cms runserver 127.0.0.1:8001 --settings=staging --pythonpath=. --nothreading
-gunicorn cms.wsgi:application --workers=8 -b localhost:$PORT_CMS
+if [ $DEBUG -eq 1 ]; then
+    ./manage.py cms runserver 127.0.0.1:$PORT_CMS --settings=staging --pythonpath=. --nothreading
+else
+    gunicorn cms.wsgi:application --workers=8 -b localhost:$PORT_CMS
+fi

@@ -13,6 +13,8 @@ rvm use $RVM_EDX_PLATFORM
 
 cd "$PROJECT_HOME/edx-platform"
 
-./manage.py lms runserver 127.0.0.1:$PORT_LMS_PREVIEW --settings=cms.preview_dev --pythonpath=. --nothreading
-
-
+if [ $DEBUG -eq 1 ]; then
+    ./manage.py lms runserver 127.0.0.1:$PORT_LMS_PREVIEW --settings=cms.staging --pythonpath=. --nothreading
+else
+    gunicorn lms.wsgi:application --workers=8 -b 0.0.0.0:$PORT_LMS_PREVIEW
+fi

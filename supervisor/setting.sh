@@ -1,7 +1,10 @@
-PROJECT_HOME="$HOME/pepper"
+export DEBUG=1
+
+export PROJECT_HOME="$HOME/pepper"
 ENV_PYTHON=edx-platform
 
-IMPORT_VIRTUALENVWRAPPER=/usr/local/bin/virtualenvwrapper.sh
+IMPORT_VIRTUALENVWRAPPER=/usr/bin/virtualenvwrapper.sh
+
 IMPORT_RVM="$HOME/.rvm/scripts/rvm"
 
 PORT_LMS=8000
@@ -42,6 +45,12 @@ export DISSCUSS_MONGODB_PORT="27017"
 export COMMENTS_SERVICE_URL="http://localhost:$PORT_DISCUSS"
 
 # edx-platform
+export EDX_PLATFORM_MONGO3_HOST="localhost"
+export EDX_PLATFORM_MONGO3_PORT=27018
+export EDX_PLATFORM_MONGO3_USER="pepper"
+export EDX_PLATFORM_MONGO3_PASSWORD="lebbeb"
+export EDX_PLATFORM_MONGO3_DB_REPORTING="reporting"
+
 export EDX_PLATFORM_MONGO_HOST='mongo'
 export EDX_PLATFORM_MONGO_PORT=27017
 export EDX_PLATFORM_MONGO_USER='pepper'
@@ -66,3 +75,8 @@ export EDX_PLATFORM_MYSQL_PASSWORD_W="$EDX_PLATFORM_MYSQL_PASSWORD_R"
 
 export LMS_BASE="http://lms.loc"
 export PREVIEW_LMS_BASE="preview-staging.pepperpd.com"
+
+export PEOPLE_ES_HOST1="127.0.0.1"
+export PEOPLE_ES_PORT1=9200
+export PEOPLE_ES_INDEX="people_dev"
+export PEOPLE_ES_DOCTYPE="user"
