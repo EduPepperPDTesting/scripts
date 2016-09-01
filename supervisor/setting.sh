@@ -1,33 +1,50 @@
+# Modify these variables to fit the instance!
 export DEBUG=1
+INSTANCE_NAME=""
+PORT_PREFIX=80
+export PROJECT_HOME="$HOME/pepper/${INSTANCE_NAME}"
 
-export PROJECT_HOME="$HOME/pepper"
-ENV_PYTHON=edx-platform
+if [[ $INSTANCE_NAME = "" ]]; then
+    DB_SUFFIX=""
+    VIRTUALEVN_SUFFIX=""
+else
+    DB_SUFFIX="_${INSTANCE_NAME}"
+    VIRTUALEVN_SUFFIX="-${INSTANCE_NAME}"
+fi
 
-IMPORT_VIRTUALENVWRAPPER=/usr/bin/virtualenvwrapper.sh
+# virtualevn
+ENV_PYTHON="edx-platform${VIRTUALEVN_SUFFIX}"
 
+if [[ -f /usr/bin/virtualenvwrapper.sh ]]; then
+    IMPORT_VIRTUALENVWRAPPER=/usr/bin/virtualenvwrapper.sh
+elif [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
+    IMPORT_VIRTUALENVWRAPPER=/usr/local/bin/virtualenvwrapper.sh
+fi    
+
+# ports
+PORT_LMS="${PORT_PREFIX}00"
+PORT_CMS="${PORT_PREFIX}01"
+PORT_LMS_PREVIEW="${PORT_PREFIX}02"
+PORT_XQUEUE="${PORT_PREFIX}03"
+PORT_ORA="${PORT_PREFIX}04"
+PORT_DISCUSS="${PORT_PREFIX}05"
+
+# rvm
 IMPORT_RVM="$HOME/.rvm/scripts/rvm"
-
-PORT_LMS=8000
-PORT_CMS=8001
-PORT_LMS_PREVIEW=8002
-PORT_XQUEUE=8003
-PORT_ORA=8004
-PORT_DISCUSS=8005
-
-RVM_EDX_PLATFORM="ruby-1.9.3-p448"
-RVM_DISCUSS="ruby-1.9.3-p448@cs_comments_service"
+RVM_EDX_PLATFORM="ruby-1.9.3-p448@${INSTANCE_NAME}"
 
 # elasticsearch
 export SEARCH_SERVER=""
 
 # ora
-export XQUEUE_DB_NAME="xqueue"
+export XQUEUE_DB_NAME="xqueue${DB_SUFFIX}"
+
 export XQUEUE_DB_USER="pepper"
 export XQUEUE_DB_PASSWORD="lebbeb"
 export XQUEUE_DB_HOST="mysql"
 export XQUEUE_DB_PORT="3306"
 
-export ESSAY_DB_NAME="essay"
+export ESSAY_DB_NAME="essay${DB_SUFFIX}"
 export ESSAY_DB_USER="pepper"
 export ESSAY_DB_PASSWORD="lebbeb"
 export ESSAY_DB_HOST="mysql"
@@ -37,8 +54,9 @@ export XQUEUE_URL="http://127.0.0.1:$PORT_XQUEUE"
 export GRADING_CONTROLLER_INTERFACE_URL="http://127.0.0.1:$PORT_ORA"
 
 # discuss
-export ES_INDEX_COMMENT_THREAD="comment_thread"
-export ES_INDEX_COMMENT="comment"
+RVM_DISCUSS="ruby-1.9.3-p448@discuss${DB_SUFFIX}"
+export ES_INDEX_COMMENT_THREAD="comment_thread${DB_SUFFIX}"
+export ES_INDEX_COMMENT="comment${DB_SUFFIX}"
 export DISSCUSS_MONGODB_HOST="mongo"
 export DISSCUSS_MONGODB_PORT="27017"
 
@@ -49,26 +67,27 @@ export EDX_PLATFORM_MONGO3_HOST="localhost"
 export EDX_PLATFORM_MONGO3_PORT=27018
 export EDX_PLATFORM_MONGO3_USER="pepper"
 export EDX_PLATFORM_MONGO3_PASSWORD="lebbeb"
-export EDX_PLATFORM_MONGO3_DB_REPORTING="reporting"
+export EDX_PLATFORM_MONGO3_DB_REPORTING="reporting${DB_SUFFIX}"
 
-export EDX_PLATFORM_MONGO_HOST='mongo'
+export EDX_PLATFORM_MONGO_HOST="mongo"
 export EDX_PLATFORM_MONGO_PORT=27017
-export EDX_PLATFORM_MONGO_USER='pepper'
-export EDX_PLATFORM_MONGO_PASSWORD='lebbeb'
-export EDX_PLATFORM_MONGO_DB_XMODULE="xmodule"
-export EDX_PLATFORM_MONGO_DB_XCONTENT="xcontent"
-export EDX_PLATFORM_MONGO_DB_USERSTORE="userstore"
-export EDX_PLATFORM_MONGO_DB_REMIND="remind"
-export EDX_PLATFORM_MONGO_DB_ASSIST="assist"
+export EDX_PLATFORM_MONGO_USER="pepper"
+export EDX_PLATFORM_MONGO_PASSWORD="lebbeb"
+export EDX_PLATFORM_MONGO_DB_XMODULE="xmodule${DB_SUFFIX}"
+export EDX_PLATFORM_MONGO_DB_XCONTENT="xcontent${DB_SUFFIX}"
+export EDX_PLATFORM_MONGO_DB_USERSTORE="userstore${DB_SUFFIX}"
+export EDX_PLATFORM_MONGO_DB_REMIND="remind${DB_SUFFIX}"
+export EDX_PLATFORM_MONGO_DB_ASSIST="assist${DB_SUFFIX}"
 
-export EDX_PLATFORM_MYSQL_DB_R='pepper'
-export EDX_PLATFORM_MYSQL_HOST_R='mysql_read'
-export EDX_PLATFORM_MYSQL_PORT_R='3306'
-export EDX_PLATFORM_MYSQL_USER_R='pepper'
-export EDX_PLATFORM_MYSQL_PASSWORD_R='lebbeb'
+export EDX_PLATFORM_MYSQL_DB_R="pepper${DB_SUFFIX}"
+
+export EDX_PLATFORM_MYSQL_HOST_R="mysql_read"
+export EDX_PLATFORM_MYSQL_PORT_R="3306"
+export EDX_PLATFORM_MYSQL_USER_R="pepper"
+export EDX_PLATFORM_MYSQL_PASSWORD_R="lebbeb"
 
 export EDX_PLATFORM_MYSQL_DB_W="$EDX_PLATFORM_MYSQL_DB_R"
-export EDX_PLATFORM_MYSQL_HOST_W='mysql_write'
+export EDX_PLATFORM_MYSQL_HOST_W="mysql_write"
 export EDX_PLATFORM_MYSQL_PORT_W="$EDX_PLATFORM_MYSQL_PORT_R"
 export EDX_PLATFORM_MYSQL_USER_W="$EDX_PLATFORM_MYSQL_USER_R"
 export EDX_PLATFORM_MYSQL_PASSWORD_W="$EDX_PLATFORM_MYSQL_PASSWORD_R"
@@ -78,5 +97,5 @@ export PREVIEW_LMS_BASE="preview-staging.pepperpd.com"
 
 export PEOPLE_ES_HOST1="127.0.0.1"
 export PEOPLE_ES_PORT1=9200
-export PEOPLE_ES_INDEX="people_dev"
+export PEOPLE_ES_INDEX="people${DB_SUFFIX}"
 export PEOPLE_ES_DOCTYPE="user"
