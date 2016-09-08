@@ -32,7 +32,6 @@ cp $base/edx-platform/cms/static/* $base/staticfiles/cms/ -r
 python manage.py lms --settings cms.staging collectstatic
 python manage.py cms --settings staging collectstatic
 
-
 echo ""
 echo "[lms]"
 ls $base/staticfiles/lms/

@@ -1,8 +1,9 @@
 # Modify these variables to fit the instance!
-export DEBUG=1
 INSTANCE_NAME=""
 PORT_PREFIX=80
-export PROJECT_HOME="$HOME/pepper/${INSTANCE_NAME}"
+
+export PROJECT_HOME="${HOME}/pepper/${INSTANCE_NAME}"
+export DEBUG=1
 
 if [[ $INSTANCE_NAME = "" ]]; then
     DB_SUFFIX=""
@@ -11,6 +12,9 @@ else
     DB_SUFFIX="_${INSTANCE_NAME}"
     VIRTUALEVN_SUFFIX="-${INSTANCE_NAME}"
 fi
+
+export LMS_BASE="http://www.pepperpd.com"
+export PREVIEW_LMS_BASE="http://preview.pepperpd.com"
 
 # virtualevn
 ENV_PYTHON="edx-platform${VIRTUALEVN_SUFFIX}"
@@ -30,7 +34,7 @@ PORT_ORA="${PORT_PREFIX}04"
 PORT_DISCUSS="${PORT_PREFIX}05"
 
 # rvm
-IMPORT_RVM="$HOME/.rvm/scripts/rvm"
+IMPORT_RVM="${HOME}/.rvm/scripts/rvm"
 RVM_EDX_PLATFORM="ruby-1.9.3-p448@${INSTANCE_NAME}"
 
 # elasticsearch
@@ -60,10 +64,10 @@ export ES_INDEX_COMMENT="comment${DB_SUFFIX}"
 export DISSCUSS_MONGODB_HOST="mongo"
 export DISSCUSS_MONGODB_PORT="27017"
 
-export COMMENTS_SERVICE_URL="http://localhost:$PORT_DISCUSS"
+export COMMENTS_SERVICE_URL="http://127.0.0.1:$PORT_DISCUSS"
 
 # edx-platform
-export EDX_PLATFORM_MONGO3_HOST="localhost"
+export EDX_PLATFORM_MONGO3_HOST="mongo3"
 export EDX_PLATFORM_MONGO3_PORT=27018
 export EDX_PLATFORM_MONGO3_USER="pepper"
 export EDX_PLATFORM_MONGO3_PASSWORD="lebbeb"
@@ -80,7 +84,6 @@ export EDX_PLATFORM_MONGO_DB_REMIND="remind${DB_SUFFIX}"
 export EDX_PLATFORM_MONGO_DB_ASSIST="assist${DB_SUFFIX}"
 
 export EDX_PLATFORM_MYSQL_DB_R="pepper${DB_SUFFIX}"
-
 export EDX_PLATFORM_MYSQL_HOST_R="mysql_read"
 export EDX_PLATFORM_MYSQL_PORT_R="3306"
 export EDX_PLATFORM_MYSQL_USER_R="pepper"
@@ -92,10 +95,10 @@ export EDX_PLATFORM_MYSQL_PORT_W="$EDX_PLATFORM_MYSQL_PORT_R"
 export EDX_PLATFORM_MYSQL_USER_W="$EDX_PLATFORM_MYSQL_USER_R"
 export EDX_PLATFORM_MYSQL_PASSWORD_W="$EDX_PLATFORM_MYSQL_PASSWORD_R"
 
-export LMS_BASE="http://lms.loc"
-export PREVIEW_LMS_BASE="preview-staging.pepperpd.com"
-
-export PEOPLE_ES_HOST1="127.0.0.1"
+# people elasticsearch
+export PEOPLE_ES_HOST1="elasticsearch"
 export PEOPLE_ES_PORT1=9200
+export PEOPLE_ES_HOST2="ashpepdr01p"
+export PEOPLE_ES_PORT2=9200
 export PEOPLE_ES_INDEX="people${DB_SUFFIX}"
 export PEOPLE_ES_DOCTYPE="user"
