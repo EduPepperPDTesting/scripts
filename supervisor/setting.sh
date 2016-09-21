@@ -38,7 +38,7 @@ IMPORT_RVM="${HOME}/.rvm/scripts/rvm"
 RVM_EDX_PLATFORM="ruby-1.9.3-p448@${INSTANCE_NAME}"
 
 # elasticsearch
-export SEARCH_SERVER=""
+export SEARCH_SERVER="http://elasticsearch:9200"
 
 # ora
 export XQUEUE_DB_NAME="xqueue${DB_SUFFIX}"
@@ -61,11 +61,12 @@ export GRADING_CONTROLLER_INTERFACE_URL="http://127.0.0.1:$PORT_ORA"
 RVM_DISCUSS="ruby-1.9.3-p448@discuss${DB_SUFFIX}"
 export ES_INDEX_COMMENT_THREAD="comment_thread${DB_SUFFIX}"
 export ES_INDEX_COMMENT="comment${DB_SUFFIX}"
+
 export DISCUSS_MONGODB_DB="discuss${DB_SUFFIX}"
 export DISCUSS_MONGODB_HOST="mongo"
 export DISCUSS_MONGODB_PORT=27017
 
-export COMMENTS_SERVICE_URL="http://127.0.0.1:$PORT_DISCUSS"
+export COMMENTS_SERVICE_URL="http://localhost:${PORT_DISCUSS}"
 
 # edx-platform
 export EDX_PLATFORM_MONGO3_HOST="mongo3"
