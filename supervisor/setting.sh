@@ -23,7 +23,7 @@ if [[ -f /usr/bin/virtualenvwrapper.sh ]]; then
     IMPORT_VIRTUALENVWRAPPER=/usr/bin/virtualenvwrapper.sh
 elif [[ -f /usr/local/bin/virtualenvwrapper.sh ]]; then
     IMPORT_VIRTUALENVWRAPPER=/usr/local/bin/virtualenvwrapper.sh
-fi    
+fi
 
 # ports
 PORT_LMS="${PORT_PREFIX}00"
@@ -36,9 +36,6 @@ PORT_DISCUSS="${PORT_PREFIX}05"
 # rvm
 IMPORT_RVM="${HOME}/.rvm/scripts/rvm"
 RVM_EDX_PLATFORM="ruby-1.9.3-p448@${INSTANCE_NAME}"
-
-# elasticsearch
-export SEARCH_SERVER="http://elasticsearch:9200"
 
 # ora
 export XQUEUE_DB_NAME="xqueue${DB_SUFFIX}"
@@ -54,8 +51,8 @@ export ESSAY_DB_PASSWORD="lebbeb"
 export ESSAY_DB_HOST="mysql"
 export ESSAY_DB_PORT="3306"
 
-export XQUEUE_URL="http://127.0.0.1:$PORT_XQUEUE"
-export GRADING_CONTROLLER_INTERFACE_URL="http://127.0.0.1:$PORT_ORA"
+export XQUEUE_URL="http://127.0.0.1:$PORT_XQUEUE/"
+export GRADING_CONTROLLER_INTERFACE_URL="http://127.0.0.1:$PORT_ORA/"
 
 # discuss
 RVM_DISCUSS="ruby-1.9.3-p448@discuss${DB_SUFFIX}"
@@ -67,6 +64,7 @@ export DISCUSS_MONGODB_HOST="mongo"
 export DISCUSS_MONGODB_PORT=27017
 
 export COMMENTS_SERVICE_URL="http://localhost:${PORT_DISCUSS}"
+export SEARCH_SERVER="http://elasticsearch:9200"
 
 # edx-platform
 export EDX_PLATFORM_MONGO3_HOST="mongo3"
